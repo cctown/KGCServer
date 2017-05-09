@@ -30,6 +30,12 @@ public class KGCInit {
 		gps = g.duplicate().powZn(s).getImmutable(); 				// DDL hardness
 		params = new PublicParameters(g, gps);  // g_s = g^s
 		//保存公开参数
-		CommonFileManager.writeObjectToFile(params, KGCDef.paramsPath);
+		try {
+			CommonFileManager.writeObjectToFile(params, KGCDef.paramsPath);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("保存公开参数失败");
+		}
 	}
 }
