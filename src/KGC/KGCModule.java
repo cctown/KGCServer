@@ -1,18 +1,19 @@
 package KGC;
 
+import SecretCloudProxy.CommonDef;
+import SecretCloudProxy.CommonFileManager;
 import SecretCloudProxy.PublicParameters;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
 import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
 
 public class KGCModule {
-	public static Pairing pairing;
-	public static PublicParameters params;
+	private static Pairing pairing;
 	private static Element s; // MASTER KEY
 	
 	public KGCModule() throws Exception {
 		//从文件中读取参数初始化双线性群
-		pairing = PairingFactory.getPairing(KGCDef.propertiesPath);
+		pairing = PairingFactory.getPairing(CommonDef.propertiesPath);
 		//从默认路径获取主密钥
 		byte[] sByte;
 		try {

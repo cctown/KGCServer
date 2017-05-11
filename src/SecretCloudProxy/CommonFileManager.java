@@ -1,4 +1,4 @@
-package KGC;
+package SecretCloudProxy;
 
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;

@@ -1,5 +1,7 @@
 package KGC;
 
+import SecretCloudProxy.CommonDef;
+import SecretCloudProxy.CommonFileManager;
 import SecretCloudProxy.PublicParameters;
 import it.unisa.dia.gas.jpbc.Element;
 import it.unisa.dia.gas.jpbc.Pairing;
@@ -13,7 +15,7 @@ public class KGCInit {
 		Element gps;
 		Element s; // MASTER KEY
 		
-		pairing = PairingFactory.getPairing(KGCDef.propertiesPath);
+		pairing = PairingFactory.getPairing(CommonDef.propertiesPath);
 		
 		//选择一个随机的生成元g∈G1
 		g = pairing.getG1().newRandomElement().getImmutable();
@@ -31,7 +33,7 @@ public class KGCInit {
 		params = new PublicParameters(g, gps);  // g_s = g^s
 		//保存公开参数
 		try {
-			CommonFileManager.writeObjectToFile(params, KGCDef.paramsPath);
+			CommonFileManager.writeObjectToFile(params, CommonDef.paramsPath);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
